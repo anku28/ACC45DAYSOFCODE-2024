@@ -1,0 +1,24 @@
+# Function to process each test case
+def water_filling_time(T, test_cases):
+    results = []
+    for case in test_cases:
+        B1, B2, B3 = case
+        # Count the number of empty bottles
+        empty_count = (B1 == 0) + (B2 == 0) + (B3 == 0)
+        # If at least two bottles are empty, it's water filling time
+        if empty_count >= 2:
+            results.append("Water filling time")
+        else:
+            results.append("Not now")
+    return results
+
+# Input processing
+T = int(input())  # Number of test cases
+test_cases = [list(map(int, input().split())) for _ in range(T)]
+
+# Get the results for each test case
+results = water_filling_time(T, test_cases)
+
+# Output the results
+for result in results:
+    print(result)
